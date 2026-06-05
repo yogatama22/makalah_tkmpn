@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="880" height="470" viewBox="0 0 880 470" font-family="Segoe UI, Arial, sans-serif">
 <rect x="0" y="0" width="880" height="470" fill="#FFFFFF"/>
 <text x="440.0" y="38" text-anchor="middle" font-size="20" font-weight="bold" fill="#1F3864">Rata-rata Kondisi Data Pending (Nyangkut) per Minggu</text>
-<text x="440.0" y="60" text-anchor="middle" font-size="12" fill="#666">Sumber: hasil monitoring aplikasi VolMon (1.024 gate)</text>
+<text x="440.0" y="60" text-anchor="middle" font-size="12" fill="#666">Sumber: hasil penyisiran/observasi awal - data baseline (1.024 gate)</text>
 <rect x="40" y="82" width="195" height="92" rx="10" fill="#EAEFF7" stroke="#2E74B5" stroke-width="2"/><text x="137.5" y="128" text-anchor="middle" font-size="30" font-weight="bold" fill="#1F3864">1.024</text><text x="137.5" y="154" text-anchor="middle" font-size="13" fill="#333">Total Gate Aktif</text>
 <rect x="255" y="82" width="195" height="92" rx="10" fill="#FFF7E6" stroke="#BF8F00" stroke-width="2"/><text x="352.5" y="128" text-anchor="middle" font-size="30" font-weight="bold" fill="#BF8F00">192</text><text x="352.5" y="154" text-anchor="middle" font-size="13" fill="#333">Gate Bermasalah (18,75%)</text>
 <rect x="470" y="82" width="175" height="92" rx="10" fill="#FCEFE6" stroke="#C55A11" stroke-width="2"/><text x="557.5" y="128" text-anchor="middle" font-size="30" font-weight="bold" fill="#C55A11">149</text><text x="557.5" y="154" text-anchor="middle" font-size="13" fill="#333">Pending</text>

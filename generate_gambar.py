@@ -296,7 +296,7 @@ def build_pending():
     s.append(f'<text x="{W/2}" y="38" text-anchor="middle" font-size="20" font-weight="bold" '
              f'fill="#1F3864">Rata-rata Kondisi Data Pending (Nyangkut) per Minggu</text>')
     s.append(f'<text x="{W/2}" y="60" text-anchor="middle" font-size="12" fill="#666">'
-             f'Sumber: hasil monitoring aplikasi VolMon (1.024 gate)</text>')
+             f'Sumber: hasil penyisiran/observasi awal - data baseline (1.024 gate)</text>')
 
     # Kartu status gate (atas)
     def card(x, y, w, h, value, label, vcolor, fill, stroke):

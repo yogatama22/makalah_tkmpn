@@ -129,6 +129,46 @@ body.append(para(
     "Konten dapat langsung disalin ke file master VOLMON_FIX.docx.",
     italic=True, size=10, color="C00000", spacing_after=200))
 
+# ===== PANDUAN PENEMPATAN =====
+body.append(para("PANDUAN PENEMPATAN DI FILE MASTER (VOLMON_FIX.docx)", bold=True, size=14,
+                 color="1F3864", spacing_after=120))
+body.append(para(
+    "Tabel berikut memetakan setiap tabel/gambar baru ke lokasi penyisipannya di file master, "
+    "termasuk kalimat acuan setelah mana elemen tersebut diletakkan."))
+body.append(para("Tabel P1  Panduan Penempatan Tabel & Gambar", bold=True, size=10, spacing_after=60))
+body.append(table([
+    ["Elemen", "Letakkan setelah / pada", "Bagian"],
+    ["Kalimat jembatan + Tabel A1 + Infografik data pending + Tabel A2 + kalimat penutup",
+     "Kalimat penutup Pareto: \u201c...tema perbaikan difokuskan pada peningkatan efektivitas "
+     "monitoring sinkronisasi data gate.\u201d (akhir sub-bab 1.1, setelah Gambar 3)", "1.1 Identifikasi Masalah"],
+    ["Pembaruan baris Risiko Revenue (Before-After)",
+     "Pada Tabel 6 Before-After yang sudah ada (ganti isi baris Risiko revenue)", "1.2 Dampak & Harapan"],
+    ["Pembaruan baseline Aspek Quality",
+     "Pada Tabel 7 Harapan dan Sasaran (ganti kolom Kondisi Saat Ini baris Quality)", "1.4 Sasaran Tema"],
+    ["Tabel B1 (Pengelompokan 4M+1E)",
+     "Menggantikan/menyempurnakan Tabel 9 Pengelompokan Penyebab", "2.1 / Memetakan Sebab Akibat"],
+    ["Gambar 5 Fishbone (gambar5_fishbone.svg)",
+     "Pada slot \u201cGambar 5 Fishbone Diagram\u201d di sub-bab Memetakan Sebab Akibat", "2.2"],
+    ["Tabel B2 (Why-Why)",
+     "Setelah fishbone, sebelum sub-bab \u201cMenganalisis Akar Penyebab\u201d", "2.3 (baru)"],
+    ["Tabel B3 (Pembobotan akar penyebab)",
+     "Menggantikan Tabel 10 Akar Penyebab agar penetapan \u2018dominan\u2019 lebih objektif", "2.4"],
+], widths=[3000, 4800, 1500]))
+
+body.append(para("Tabel P2  Pemetaan Nama File Gambar (SVG) ke Nomor Gambar di Master", bold=True, size=10, spacing_after=60))
+body.append(table([
+    ["File SVG", "Nomor Gambar di Master", "Keterangan"],
+    ["gambar1_flowchart_eksisting.svg", "Gambar 1 Proses Eksisting", "Sudah ada slot"],
+    ["gambar2_pareto.svg", "Gambar 3 Grafik Masalah Ticket HD", "Sudah ada slot"],
+    ["gambar3_before_after.svg", "Gambar 4 Before - After", "Sudah ada slot (angka diperbarui)"],
+    ["gambar4_data_pending.svg", "GAMBAR BARU (sisipkan di 1.1)", "Tambahkan ke Daftar Gambar & sesuaikan penomoran berikutnya"],
+    ["gambar5_fishbone.svg", "Gambar 5 Fishbone Diagram", "Sudah ada slot"],
+], widths=[3300, 3500, 2500]))
+body.append(para(
+    "Catatan penomoran: penyisipan infografik data pending di sub-bab 1.1 menambah satu gambar baru. "
+    "Setelah disisipkan, perbarui Daftar Gambar dan geser penomoran gambar setelahnya (+1) atau beri "
+    "nomor menyesuaikan urutan final di dokumen master.", italic=True, size=9, spacing_after=200))
+
 # ============================================================
 # BAGIAN A - KOREKSI LANGKAH 1
 # ============================================================
@@ -137,9 +177,16 @@ body.append(para("BAGIAN A - KOREKSI LANGKAH 1 (DATA AKTUAL)", bold=True, size=1
 
 body.append(para(
     "Pada versi sebelumnya, besaran kasus pending dan dampak finansial masih menggunakan angka "
-    "estimasi. Setelah aplikasi VolMon beroperasi, diperoleh data aktual rata-rata kondisi data "
-    "yang tertahan (nyangkut) per minggu sebagaimana tabel berikut. Data ini menggantikan angka "
-    "estimasi sehingga identifikasi masalah menjadi lebih kuat dan dapat dipertanggungjawabkan."))
+    "estimasi. Bagian ini menggantikannya dengan data aktual hasil penyisiran/observasi awal "
+    "(baseline) periode Oktober-Desember 2025 sehingga identifikasi masalah menjadi lebih kuat dan "
+    "dapat dipertanggungjawabkan. Catatan: data baseline yang sama akan digunakan kembali sebagai "
+    "pembanding pada Langkah 6 (Mengevaluasi Solusi)."))
+
+body.append(para(
+    "Kalimat jembatan (sebelum Tabel A1): \u201cSelain tercermin dari tiket helpdesk, besarnya "
+    "keterlambatan sinkronisasi data gate juga dapat diukur secara langsung dari kondisi data yang "
+    "tertahan (pending) pada gate. Berdasarkan hasil monitoring penyisiran awal, rata-rata kondisi "
+    "data pending per minggu adalah sebagai berikut.\u201d", italic=True, color="7F6000"))
 
 body.append(para("Tabel A1  Rata-rata Kondisi Data Pending (Nyangkut) per Minggu", bold=True, size=10, spacing_after=60))
 body.append(table([
@@ -153,12 +200,12 @@ body.append(table([
     ["Total transaksi tertahan", "583.543 transaksi", "Gate In + Gate Out"],
     ["Revenue tertahan (pending)", "Rp932.412.856", "Potensi revenue belum tercatat tepat waktu"],
 ], widths=[3100, 2400, 3800]))
+body.append(para("Sumber: hasil penyisiran/observasi awal (data baseline), periode Okt-Des 2025.",
+                 italic=True, size=9, spacing_after=120))
 
 body.append(para(
-    "Berdasarkan Tabel A1, secara rata-rata terdapat 192 gate bermasalah setiap minggu (149 pending "
-    "dan 43 error) yang menahan 583.543 transaksi serta revenue senilai Rp932.412.856 dari "
-    "pencatatan tepat waktu di server pusat. Sebagai gambaran kondisi pada level stasiun, berikut "
-    "contoh data gate yang terdeteksi bermasalah."))
+    "Kalimat jembatan (antara Tabel A1 dan A2): \u201cSebagai gambaran kondisi pada level stasiun, "
+    "berikut contoh detail gate yang terdeteksi mengalami pending data.\u201d", italic=True, color="7F6000"))
 
 body.append(para("Tabel A2  Contoh Detail Data Pending per Stasiun", bold=True, size=10, spacing_after=60))
 body.append(table([
@@ -167,8 +214,14 @@ body.append(table([
     ["BJD 13", "10.10.23.23", "7.151", "5.490", "21.608.000"],
     ["BJD 21", "10.10.23.31", "2.591", "72", "97.000"],
 ], widths=[1500, 2100, 1900, 1900, 1900]))
-body.append(figref("[GAMBAR 4: Infografik Rata-rata Kondisi Data Pending per Minggu - "
-                   "file gambar4_data_pending.svg]"))
+body.append(figref("[GAMBAR (baru): Infografik Rata-rata Kondisi Data Pending per Minggu - "
+                   "file gambar4_data_pending.svg. Letakkan tepat setelah Tabel A2.]"))
+
+body.append(para(
+    "Kalimat jembatan (setelah Tabel A2 / Gambar, menuju 1.2 Dampak): \u201cBesarnya volume transaksi "
+    "dan revenue yang tertahan tersebut menegaskan bahwa keterlambatan sinkronisasi data gate "
+    "berdampak langsung terhadap keandalan data operasional dan pendapatan perusahaan, sebagaimana "
+    "diuraikan pada analisa dampak berikut.\u201d", italic=True, color="7F6000"))
 
 body.append(heading("Pembaruan Estimasi Dampak Finansial menjadi Data Aktual", 2))
 body.append(para(
@@ -201,7 +254,9 @@ body.append(table([
 ], widths=[1100, 3900, 3300, 1000]))
 
 body.append(heading("Daftar Perubahan Bagian A", 2))
-body.append(bullet("Menambahkan Tabel A1 (data aktual kondisi data pending per minggu) dari aplikasi VolMon."))
+body.append(bullet("Menambahkan Tabel A1 (data baseline kondisi data pending per minggu hasil penyisiran/observasi awal)."))
+body.append(bullet("Menambahkan kalimat jembatan sebelum, di antara, dan sesudah Tabel A1-A2 agar alur mengalir."))
+body.append(bullet("Mengubah atribusi sumber data dari \u2018aplikasi VolMon\u2019 menjadi \u2018penyisiran/observasi awal (baseline)\u2019 untuk menjaga logika Langkah 1."))
 body.append(bullet("Menambahkan Tabel A2 (contoh detail per stasiun: BJD 10, BJD 13, BJD 21)."))
 body.append(bullet("Mengganti estimasi dampak finansial menjadi data aktual Rp932.412.856 revenue tertahan/minggu."))
 body.append(bullet("Memperbarui baris Risiko Revenue pada tabel Before-After (hapus angka estimasi Rp500 juta/hari)."))
