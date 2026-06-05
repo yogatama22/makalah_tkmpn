@@ -277,8 +277,152 @@ def build_before_after():
 
     s.append(f'<rect x="50" y="478" width="800" height="44" rx="8" fill="#FFF2CC" stroke="#BF8F00"/>')
     s.append(f'<text x="{W/2}" y="505" text-anchor="middle" font-size="14" font-weight="bold" '
-             f'fill="#7F6000">Potensi risiko selisih revenue +- Rp500 juta / hari keterlambatan '
+             f'fill="#7F6000">Rata-rata Rp932.412.856 revenue tertahan (pending) per minggu '
              f'dapat diminimalkan</text>')
+
+    s.append('</svg>')
+    return "\n".join(s)
+
+
+# ============================================================
+# GAMBAR 4 - INFOGRAFIK DATA PENDING (NYANGKUT) RATA-RATA / MINGGU
+# ============================================================
+def build_pending():
+    W, H = 880, 470
+    s = []
+    s.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
+             f'viewBox="0 0 {W} {H}" font-family="{FONT}">')
+    s.append(f'<rect x="0" y="0" width="{W}" height="{H}" fill="#FFFFFF"/>')
+    s.append(f'<text x="{W/2}" y="38" text-anchor="middle" font-size="20" font-weight="bold" '
+             f'fill="#1F3864">Rata-rata Kondisi Data Pending (Nyangkut) per Minggu</text>')
+    s.append(f'<text x="{W/2}" y="60" text-anchor="middle" font-size="12" fill="#666">'
+             f'Sumber: hasil monitoring aplikasi VolMon (1.024 gate)</text>')
+
+    # Kartu status gate (atas)
+    def card(x, y, w, h, value, label, vcolor, fill, stroke):
+        out = (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="10" '
+               f'fill="{fill}" stroke="{stroke}" stroke-width="2"/>')
+        out += (f'<text x="{x+w/2}" y="{y+46}" text-anchor="middle" font-size="30" '
+                f'font-weight="bold" fill="{vcolor}">{esc(value)}</text>')
+        out += (f'<text x="{x+w/2}" y="{y+72}" text-anchor="middle" font-size="13" '
+                f'fill="#333">{esc(label)}</text>')
+        return out
+
+    y0 = 82
+    s.append(card(40, y0, 195, 92, "1.024", "Total Gate Aktif", "#1F3864", "#EAEFF7", "#2E74B5"))
+    s.append(card(255, y0, 195, 92, "192", "Gate Bermasalah (18,75%)", "#BF8F00", "#FFF7E6", "#BF8F00"))
+    s.append(card(470, y0, 175, 92, "149", "Pending", "#C55A11", "#FCEFE6", "#C55A11"))
+    s.append(card(665, y0, 175, 92, "43", "Error", "#C00000", "#FCEDED", "#C00000"))
+
+    # Panel volume transaksi & revenue tertahan (bawah)
+    y1 = 200
+    s.append(f'<rect x="40" y="{y1}" width="605" height="210" rx="10" fill="#F5F8FC" '
+             f'stroke="#2E74B5" stroke-width="2"/>')
+    s.append(f'<text x="60" y="{y1+30}" font-size="15" font-weight="bold" fill="#1F3864">'
+             f'Volume Data Transaksi Tertahan</text>')
+
+    def barrow(y, label, value, maxv, val_int, color):
+        bx, bw = 60, 420
+        s_ = (f'<text x="{bx}" y="{y-6}" font-size="13" fill="#333">{esc(label)}</text>')
+        s_ += f'<rect x="{bx}" y="{y}" width="{bw}" height="22" rx="4" fill="#E2E8F0"/>'
+        w = bw * (val_int / maxv)
+        s_ += f'<rect x="{bx}" y="{y}" width="{w:.1f}" height="22" rx="4" fill="{color}"/>'
+        s_ += (f'<text x="{bx+bw+10}" y="{y+17}" font-size="14" font-weight="bold" '
+               f'fill="{color}">{esc(value)}</text>')
+        return s_
+
+    maxv = 337358
+    s.append(barrow(y1 + 60, "Gate In Pending", "337.358", maxv, 337358, "#2E74B5"))
+    s.append(barrow(y1 + 110, "Gate Out Pending", "246.185", maxv, 246185, "#5B9BD5"))
+    s.append(barrow(y1 + 160, "Total Transaksi Tertahan", "583.543", maxv, 337358, "#1F3864"))
+
+    # Kartu revenue tertahan (kanan bawah)
+    s.append(f'<rect x="665" y="{y1}" width="175" height="210" rx="10" fill="#FCEDED" '
+             f'stroke="#C00000" stroke-width="2"/>')
+    s.append(f'<text x="752" y="{y1+34}" text-anchor="middle" font-size="13" '
+             f'font-weight="bold" fill="#C00000">Revenue Tertahan</text>')
+    s.append(f'<text x="752" y="{y1+44}" text-anchor="middle" font-size="11" fill="#C00000">'
+             f'(pending / minggu)</text>')
+    s.append(f'<text x="752" y="{y1+120}" text-anchor="middle" font-size="15" '
+             f'font-weight="bold" fill="#C00000">Rp</text>')
+    s.append(f'<text x="752" y="{y1+150}" text-anchor="middle" font-size="20" '
+             f'font-weight="bold" fill="#C00000">932.412.856</text>')
+    s.append('</svg>')
+    return "\n".join(s)
+
+
+# ============================================================
+# GAMBAR 5 - FISHBONE / ISHIKAWA DIAGRAM (LANGKAH 2)
+# ============================================================
+def build_fishbone():
+    W, H = 1040, 600
+    s = []
+    s.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
+             f'viewBox="0 0 {W} {H}" font-family="{FONT}">')
+    s.append(f'<rect x="0" y="0" width="{W}" height="{H}" fill="#FFFFFF"/>')
+    s.append('<defs><marker id="fa" markerWidth="12" markerHeight="12" refX="9" refY="4" '
+             'orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#1F3864"/></marker></defs>')
+    s.append(f'<text x="{W/2}" y="34" text-anchor="middle" font-size="20" font-weight="bold" '
+             f'fill="#1F3864">Diagram Sebab-Akibat (Fishbone) Keterlambatan Sinkronisasi Data Gate</text>')
+
+    spine_y = 320
+    spine_x0 = 70
+    spine_x1 = 770
+
+    # Tulang punggung + kepala (akibat)
+    s.append(f'<line x1="{spine_x0}" y1="{spine_y}" x2="{spine_x1}" y2="{spine_y}" '
+             f'stroke="#1F3864" stroke-width="4" marker-end="url(#fa)"/>')
+    hx, hy, hw, hh = 778, 262, 250, 116
+    s.append(f'<rect x="{hx}" y="{hy}" width="{hw}" height="{hh}" rx="10" '
+             f'fill="#1F3864" stroke="#13264a" stroke-width="2"/>')
+    for i, ln in enumerate(["AKIBAT:", "Keterlambatan", "Sinkronisasi Data", "Gate ke Server Pusat"]):
+        fw = "bold" if i == 0 else "normal"
+        fs = 13 if i == 0 else 15
+        s.append(f'<text x="{hx+hw/2}" y="{hy+26+i*24}" text-anchor="middle" font-size="{fs}" '
+                 f'font-weight="{fw}" fill="#FFFFFF">{esc(ln)}</text>')
+
+    # Definisi tulang: (label, anchor_x_on_spine, posisi atas/bawah, warna, list penyebab)
+    bones = [
+        ("MANUSIA", 250, "top", "#2E74B5",
+         ["Monitoring bergantung", "pada petugas", "Pengecekan manual berulang"]),
+        ("METODE", 470, "top", "#548235",
+         ["Belum ada monitoring realtime", "Belum ada early warning", "Monitoring masih manual"]),
+        ("LINGKUNGAN", 670, "top", "#BF8F00",
+         ["Jumlah gate sangat banyak", "(1.024 unit)", "Tersebar di 84 stasiun"]),
+        ("MESIN / ALAT", 360, "bot", "#C55A11",
+         ["Belum ada dashboard terpusat", "Tidak ada notifikasi otomatis", "Aplikasi sync tak termonitor"]),
+        ("MATERIAL", 580, "bot", "#7030A0",
+         ["Database lokal tiap gate", "berdiri sendiri", "Data gagal terkirim"]),
+    ]
+
+    for label, ax, pos, color, causes in bones:
+        if pos == "top":
+            ey = 95
+            lx = ax - 150
+        else:
+            ey = 545
+            lx = ax - 150
+        # garis tulang diagonal menuju spine
+        s.append(f'<line x1="{lx}" y1="{ey}" x2="{ax}" y2="{spine_y}" '
+                 f'stroke="{color}" stroke-width="2.5"/>')
+        # kotak kategori di ujung tulang
+        bw, bh = 150, 30
+        bxx = lx - bw / 2
+        byy = ey - bh if pos == "top" else ey
+        s.append(f'<rect x="{bxx}" y="{byy}" width="{bw}" height="{bh}" rx="6" '
+                 f'fill="{color}" stroke="#333" stroke-width="1"/>')
+        s.append(f'<text x="{lx}" y="{byy+20}" text-anchor="middle" font-size="14" '
+                 f'font-weight="bold" fill="#FFFFFF">{esc(label)}</text>')
+        # teks penyebab di sepanjang tulang
+        n = len(causes)
+        for i, c in enumerate(causes):
+            t = (i + 1) / (n + 1)
+            px = lx + (ax - lx) * t
+            py = ey + (spine_y - ey) * t
+            tx = px + 12
+            ty = (py - 4) if pos == "top" else (py + 12)
+            s.append(f'<circle cx="{px:.0f}" cy="{py:.0f}" r="3" fill="{color}"/>')
+            s.append(f'<text x="{tx:.0f}" y="{ty:.0f}" font-size="11.5" fill="#333">{esc(c)}</text>')
 
     s.append('</svg>')
     return "\n".join(s)
@@ -288,6 +432,8 @@ outputs = {
     "gambar1_flowchart_eksisting.svg": build_flowchart(),
     "gambar2_pareto.svg": build_pareto(),
     "gambar3_before_after.svg": build_before_after(),
+    "gambar4_data_pending.svg": build_pending(),
+    "gambar5_fishbone.svg": build_fishbone(),
 }
 for fn, content in outputs.items():
     with open(fn, "w", encoding="utf-8") as f:

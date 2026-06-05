@@ -7,5 +7,5 @@
 <line x1="410" y1="270" x2="495" y2="270" stroke="#548235" stroke-width="8" marker-end="url(#bigarr)"/>
 <text x="452" y="255" text-anchor="middle" font-size="12" font-weight="bold" fill="#548235">VolMon</text>
 <rect x="50" y="478" width="800" height="44" rx="8" fill="#FFF2CC" stroke="#BF8F00"/>
-<text x="450.0" y="505" text-anchor="middle" font-size="14" font-weight="bold" fill="#7F6000">Potensi risiko selisih revenue +- Rp500 juta / hari keterlambatan dapat diminimalkan</text>
+<text x="450.0" y="505" text-anchor="middle" font-size="14" font-weight="bold" fill="#7F6000">Rata-rata Rp932.412.856 revenue tertahan (pending) per minggu dapat diminimalkan</text>
 </svg>
