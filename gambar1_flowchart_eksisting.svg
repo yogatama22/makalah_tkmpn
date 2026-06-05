@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="900" viewBox="0 0 820 900" font-family="Segoe UI, Arial, sans-serif">
+<rect x="0" y="0" width="820" height="900" fill="#FFFFFF"/>
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#444"/></marker></defs>
+<text x="410.0" y="40" text-anchor="middle" font-size="20" font-weight="bold" fill="#1F3864">Alur Proses Monitoring Sinkronisasi Data Gate (Eksisting)</text>
+<rect x="185.0" y="68.0" width="230" height="44" rx="22.0" ry="22.0" fill="#E2EFDA" stroke="#548235" stroke-width="2"/><text x="300" y="94.9" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">MULAI</text>
+<rect x="175.0" y="140.0" width="250" height="50" rx="8" ry="8" fill="#DDEBF7" stroke="#2E74B5" stroke-width="2"/><text x="300" y="169.9" text-anchor="middle" font-size="14" font-weight="normal" fill="#222">Petugas IT remote ke PC Gate</text>
+<polygon points="300,220.0 390.0,270 300,320.0 210.0,270" fill="#FFF2CC" stroke="#BF8F00" stroke-width="2"/><text x="300" y="266.05" text-anchor="middle" font-size="13" font-weight="normal" fill="#222">Status Gate</text><text x="300" y="283.05" text-anchor="middle" font-size="13" font-weight="normal" fill="#222">Online?</text>
+<rect x="520.0" y="235.0" width="240" height="70" rx="8" ry="8" fill="#FCE4E4" stroke="#C00000" stroke-width="2"/><text x="640" y="256.9" text-anchor="middle" font-size="14" font-weight="normal" fill="#222">Lapor teknisi lapangan</text><text x="640" y="274.9" text-anchor="middle" font-size="14" font-weight="normal" fill="#222">untuk cek perangkat</text><text x="640" y="292.9" text-anchor="middle" font-size="14" font-weight="normal" fill="#222">secara langsung</text>
+<rect x="160.0" y="365.0" width="280" height="70" rx="8" ry="8" fill="#DDEBF7" stroke="#2E74B5" stroke-width="2"/><text x="300" y="386.9" text-anchor="middle" font-size="14" font-weight="normal" fill="#222">Cek data di dalam gate:</text><text x="300" y="404.9" text-anchor="middle" font-size="14" font-weight="normal" fill="#222">aplikasi sync hang? /</text><text x="300" y="422.9" text-anchor="middle" font-size="14" font-weight="normal" fill="#222">database perlu restart?</text>
+<polygon points="300,475.0 400.0,530 300,585.0 200.0,530" fill="#FFF2CC" stroke="#BF8F00" stroke-width="2"/><text x="300" y="526.05" text-anchor="middle" font-size="13" font-weight="normal" fill="#222">Perlu</text><text x="300" y="543.05" text-anchor="middle" font-size="13" font-weight="normal" fill="#222">restart?</text>
+<rect x="520.0" y="495.0" width="240" height="70" rx="8" ry="8" fill="#FCE4E4" stroke="#C00000" stroke-width="2"/><text x="640" y="516.9" text-anchor="middle" font-size="14" font-weight="normal" fill="#222">Restart aplikasi sync /</text><text x="640" y="534.9" text-anchor="middle" font-size="14" font-weight="normal" fill="#222">restart database</text><text x="640" y="552.9" text-anchor="middle" font-size="14" font-weight="normal" fill="#222">PostgreSQL</text>
+<rect x="155.0" y="640.0" width="290" height="60" rx="8" ry="8" fill="#E2EFDA" stroke="#548235" stroke-width="2"/><text x="300" y="665.9" text-anchor="middle" font-size="14" font-weight="normal" fill="#222">Pastikan data transaksi</text><text x="300" y="683.9" text-anchor="middle" font-size="14" font-weight="normal" fill="#222">tersinkron ke server pusat</text>
+<rect x="190.0" y="738.0" width="220" height="44" rx="22.0" ry="22.0" fill="#E2EFDA" stroke="#548235" stroke-width="2"/><text x="300" y="764.9" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">SELESAI</text>
+<line x1="300" y1="112" x2="300" y2="140" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+<line x1="300" y1="190" x2="300" y2="220" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+<line x1="300" y1="320" x2="300" y2="365" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+<text x="310" y="350" font-size="12" font-weight="bold" fill="#548235">Ya (Online)</text>
+<line x1="300" y1="435" x2="300" y2="475" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+<line x1="300" y1="585" x2="300" y2="640" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+<text x="310" y="620" font-size="12" font-weight="bold" fill="#548235">Tidak</text>
+<line x1="300" y1="700" x2="300" y2="738" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+<line x1="390" y1="270" x2="520" y2="270" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+<text x="420" y="258" font-size="12" font-weight="bold" fill="#C00000">Tidak (Offline)</text>
+<path d="M640,305 L640,400 L440,400" fill="none" stroke="#C00000" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arr)"/>
+<text x="570" y="360" font-size="12" font-weight="bold" fill="#C00000">Setelah online</text>
+<line x1="400" y1="530" x2="520" y2="530" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+<text x="410" y="518" font-size="12" font-weight="bold" fill="#C00000">Ya</text>
+<path d="M640,565 L640,670 L445,670" fill="none" stroke="#C00000" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arr)"/>
+<text x="580" y="625" font-size="12" font-weight="bold" fill="#C00000">Selesai restart</text>
+<rect x="60" y="830" width="22" height="14" rx="3" fill="#DDEBF7" stroke="#2E74B5"/>
+<text x="88" y="842" font-size="12" fill="#333">Proses</text>
+<polygon points="200,830 214,837 200,844 186,837" fill="#FFF2CC" stroke="#BF8F00"/>
+<text x="222" y="842" font-size="12" fill="#333">Keputusan</text>
+<rect x="330" y="830" width="22" height="14" rx="7" fill="#E2EFDA" stroke="#548235"/>
+<text x="358" y="842" font-size="12" fill="#333">Mulai/Selesai</text>
+<rect x="480" y="830" width="22" height="14" rx="3" fill="#FCE4E4" stroke="#C00000"/>
+<text x="508" y="842" font-size="12" fill="#333">Tindakan perbaikan</text>
+</svg>
